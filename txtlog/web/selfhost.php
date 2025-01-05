@@ -111,7 +111,7 @@ $hostname = 'https://'.(new Settings)->get()->getSitename();
       </div>
       <div class="message-body">
         <div class="mb-3">Log rows are processed in batches using a fast in memory queue (Redis Streams). On each webserver, set at least two cron jobs to handle updating the cache, converting Redis memory streams to disk and to update the ClickHouse database.</div>
-        <div class="mb-3 mt-3">Create a cron job to clear the caches and convert Redis streams (which contain the log lines) to files.</div>
+        <div class="mb-3 mt-3">Create a cron job to update the cached settings and convert Redis streams (which contain the log lines) to files.</div>
         <code class="doc">curl '<?=$hostname?>/cron?updatecache=true&amp;action=cachetofile'</code><br>
         <div class="mb-3 mt-3">Create another cron job to insert the rows into the ClickHouse database.</div>
         <code class="doc">curl '<?=$hostname?>/cron?action=filetodatabase'</code><br>

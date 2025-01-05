@@ -29,7 +29,7 @@ $defaultAccount = (new Account)->get((new Settings)->get()->getAnonymousAccountI
     </div>
 
     <div class="block">
-      Send a POST request with an existing log URL to create a new log row. Data is inserted asynchronously in batches, usually within a few seconds.<br>
+      Send a POST request to create a new log row. Data is inserted asynchronously in batches, usually within a few seconds.<br>
       Send unformatted text or JSON. It's possible to insert up to 10.000 rows at once, see the examples below.<br>
       All fields are optional and data is automatically truncated if a row is too long.
     </div>
@@ -338,7 +338,7 @@ print(result.text)</pre>
           </span>
         </div>
         <div class="column">
-          Determines when rows are deleted from a log, e.g. a retention of 15 means there rows older than 15 days are automatically deleted.<br>
+          Determines when rows are deleted from a log, e.g. a retention of 15 means rows older than 15 days are automatically deleted.<br>
           Provide a number between 1 and <?=(new Settings)->get()->getMaxRetention()?><br>
           Default value: <?=$defaultAccount->getMaxRetention()?>
         </div>
@@ -413,7 +413,7 @@ curl -d 'name=firstlog&amp;retention=7&amp;username=test1&amp;password=hunter2' 
         </div>
         <div class="column">
           HTTP status code 200 (OK).<br>
-          JSON object containing an URL to the log.
+          JSON object with the result.
           <pre class="doc">
 {
     "status": "updated",

@@ -90,7 +90,7 @@ class Txtlog {
 
   setUpgradeUrl(data) {
     if(data.username === undefined) {
-      $('.upgradebutton').text('Set a username first before you can upgrade');
+      $('.upgradebutton').text('Set a username first');
       return;
     }
 

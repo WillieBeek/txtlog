@@ -20,7 +20,7 @@ $logDomain = (new Settings)->get()->getLogDomain();
     <div class="block narrow">
       <textarea class="textarea is-small is-family-code" id="logdata" rows="7">
 {
-"user": "458",
+"user": 458,
 "url": "/login",
 "ip": "<?=$ip?>",
 "trace_id": "<?=$randomID?>"
