@@ -1,0 +1,85 @@
+.navcustom {
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #f5f5f5;
+}
+.notop {
+  margin-top: -3rem;
+}
+.example {
+  white-space: pre-line;
+  word-break: break-all;
+}
+.logline {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.future-result,.example,.hide {
+  display: none;
+}
+.narrow {
+  max-width: 600px;
+}
+.medium {
+  max-width: 700px;
+  min-height: 90px;
+}
+.dashboard {
+  font-size: .85rem;
+  max-width: 1250px;
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .mobwide {
+    padding-right: 0;
+  }
+  /* Prevent scrolling tabs on mobile */
+  .tabs li {
+    margin-left: -.4rem;
+  }
+}
+.doc {
+  background-color: white;
+  padding: .5rem .2rem;
+  white-space: pre-wrap;
+}
+.high {
+  min-height: 220px;
+}
+.cmd {
+  max-width: 30rem;
+}
+.is-right {
+  text-align: right;
+}
+.striped {
+  background-color: var(--bulma-code-background);
+}
+.logcode {
+  width: 12rem;
+}
+
+/* JSON */
+.json_string {
+  color: #dd00a9;
+}
+.json_number {
+  color: darkorange;
+}
+.json_boolean {
+  color: darkorange;
+}
+.json_null {
+  color: magenta;
+}
+.json_key {
+  color: #127eea;
+}
+
+/* Sticky footer */
+html, body {
+  min-height: 100vh;
+}
+.footer {
+  position: sticky;
+  top: 100vh;
+}

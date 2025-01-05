@@ -1,0 +1,16 @@
+# Rewrite all requests to index.php.
+rewriteEngine On
+
+# First check if there is an offline file, indicating the site should be offline
+RewriteCond %{DOCUMENT_ROOT}/app_offline.php -f
+RewriteRule ^(.*) %{DOCUMENT_ROOT}/app_offline.php [NC,L]
+
+# Based on Joomla single entry point logic
+# If the request is something other than index.php
+RewriteCond %{REQUEST_URI} !^/index\.php
+# And the requested filename doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+# And the requested directory does not exist
+RewriteCond %{REQUEST_FILENAME} !-d
+# Then rewrite the request to the index.php script
+RewriteRule (.*) index.php [L]

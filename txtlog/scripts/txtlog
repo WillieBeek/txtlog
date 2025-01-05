@@ -1,0 +1,65 @@
+#!/bin/bash
+AUTH=$REPLACE_AUTH_CODE
+
+TXTLOG=/usr/local/bin/txtlog
+PAMFILE=/etc/pam.d/common-auth
+
+# This script should be run as root because it creates a small script in /usr/local/bin and modifies PAM files
+if [ `id -u` != "0" ]; then
+  echo "Please run this script as root"
+  echo "sudo /bin/bash ./txtlog"
+  exit 1
+fi
+
+if [ ! -f $PAMFILE ]; then 
+  echo "PAM not found, aborting"
+  exit 2
+fi
+
+if [ -f $TXTLOG ]; then 
+  echo "The txtlog script already exists, if you want to recreate it delete $TXTLOG and run this script again:"
+  echo "sudo rm -f $TXTLOG"
+  exit 3
+fi
+
+cat > $TXTLOG << 'EOF'
+#!/bin/bash
+URL=$REPLACE_DOMAIN/api/log/
+AUTHORIZATION=$1
+
+# Uncomment this to log cron as well
+if [ "$PAM_SERVICE" == "cron" ]; then exit; fi
+
+DATE=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
+
+ACTION=$PAM_TYPE
+ACTION="${ACTION/open_session/login}"
+ACTION="${ACTION/close_session/logout}"
+
+USER=$PAM_RUSER
+if [ -n $PAM_USER ]; then
+  [ $PAM_RUSER ] && USER=$PAM_RUSER/$PAM_USER || USER=$PAM_USER
+fi
+USER="${USER//[ \-\"\']/}"
+HOST=$(hostname)
+HOST="${HOST//[ \-\"\']/}"
+
+curl \
+-H "Authorization: $AUTHORIZATION" \
+$URL \
+--data-binary '{"date":"'$DATE'","service":"'$PAM_SERVICE'","action":"'$ACTION'","user":"'$USER'","ip":"'$PAM_RHOST'","serverhostname":"'$HOST'"}' \
+|| true
+EOF
+
+chmod 700 $TXTLOG
+
+echo "Created script $TXTLOG"
+
+if grep -q $TXTLOG $PAMFILE; then 
+  echo "$PAMFILE already contains the necessary scripts"
+else 
+  echo "Modifying $PAMFILE" 
+  echo -e "\n# Log common auth info using txtlog\nsession optional pam_exec.so seteuid $TXTLOG $AUTH" >> $PAMFILE
+fi
+
+echo "Install complete"
