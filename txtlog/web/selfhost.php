@@ -10,7 +10,7 @@ $hostname = 'https://'.(new Settings)->get()->getSitename();
     </div>
 
     <div class="block">
-      Setting up a self hosted instance is a great way to keep data under your own control. Installing a new environment requires some Unix/Linux knowledge and one or more servers. There are several types of servers required, when starting small it's possible to combine multiple servers on one machine, e.g. host MySQL and Apache on the same server. The following instructions are are tested on the most recent Ubuntu LTS, but installation is possible on most Linux distributions.
+      Setting up a self hosted instance is a great way to keep data under your own control. Installing a new environment requires some Unix/Linux knowledge and one or more servers. There are several types of servers required, when starting small it's possible to combine multiple servers on one machine, e.g. host MySQL and Apache on the same server. The following instructions are tested on the most recent Ubuntu LTS, but installation is possible on most Linux distributions.
     </div>
 
     <div class="title">
