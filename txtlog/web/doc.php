@@ -305,7 +305,7 @@ print(result.text)</pre>
         </div>
         <div class="column content">
           HTTP status code 201 (Created).<br>
-          JSON object containing serveral tokens and an URL to view the log.
+          JSON object containing several tokens and an URL to view the log.
           <ul>
             <li>admin: token to insert, view, delete logs or to generate new tokens</li>
             <li>insert: token only valid for inserting rows</li>
@@ -417,7 +417,7 @@ curl -d 'name=firstlog&amp;retention=7&amp;username=test1&amp;password=hunter2' 
           <pre class="doc">
 {
     "status": "updated",
-    "usermsg": "Password sucessfully updated"
+    "usermsg": "Password successfully updated"
 }</pre>
          </div>
       </div>
@@ -814,7 +814,7 @@ curl <?=$url?>/api/log/1KxAkipMQDsShjzua8xm1ncdNfsY3?limit=2</pre>
         </div>
         <div class="column content">
           HTTP status code 200 (Ok).<br>
-          JSON object containing serveral tokens and an URL to view the log, see creating a new log for the token types.
+          JSON object containing several tokens and an URL to view the log, see creating a new log for the token types.
           <pre class="doc">
 {
     "account": "Anonymous",

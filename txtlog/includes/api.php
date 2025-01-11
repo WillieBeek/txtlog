@@ -435,11 +435,11 @@ class Api {
 
     // Set username and password/update password
     if(!$txtlog->getUserHash() && strlen($this->username) > 0 && strlen($this->password) > 0) {
-      $usermsg = 'Username and password sucessfully set';
+      $usermsg = 'Username and password successfully set';
       $txtlog->setUsername($this->username);
       $txtlog->setPassword($this->password);
     } elseif(strlen($txtlog->getUserHash()) > 0 && strlen($this->password) > 0) {
-      $usermsg = 'Password sucessfully updated';
+      $usermsg = 'Password successfully updated';
       $txtlog->setPassword($this->password);
     }
 
