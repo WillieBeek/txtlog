@@ -159,7 +159,7 @@ if(Common::canBeStripeSession($session)) {
           <header class="card-header">
             <p class="card-header-title is-centered">
             &nbsp;<?=$pro1->getName()?><br>
-              $<?=number_format($pro1->getPrice()/100, 2, '.', '')?>
+              $<?=number_format($pro1->getPrice()/100, 2, '.', '')?> / month
             </p>
           </header>
 
@@ -207,7 +207,7 @@ if(Common::canBeStripeSession($session)) {
           <header class="card-header">
             <p class="card-header-title is-centered">
             &nbsp;<?=$pro2->getName()?><br>
-              $<?=number_format($pro2->getPrice()/100, 2, '.', '')?>
+              $<?=number_format($pro2->getPrice()/100, 2, '.', '')?> / month
             </p>
           </header>
 
