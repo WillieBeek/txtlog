@@ -350,7 +350,7 @@ print(result.text)</pre>
           </span>
         </div>
         <div class="column">
-          Optional username, when setting a username, <a href="/login">login</a> with this username and password instead of remembering the URLs.
+          Optional username, when setting a username, <a href="/account">login</a> with this username and password instead of remembering the URLs.
         </div>
       </div>
       <div class="columns">
