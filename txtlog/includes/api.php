@@ -548,8 +548,8 @@ class Api {
       $input = (object)['rows'=>[$input]];
     }
 
-    // Allow max. 10000 items per call
-    $rows = array_slice($input->rows, 0, 10000);
+    // Allow max. 20000 items per call
+    $rows = array_slice($input->rows, 0, 20000);
 
     // Calculate retention offset
     $retentionOffset = $now - 60 * 60 * 24 * ($this->settings->getMaxRetention() - $txtlog->getRetention());
